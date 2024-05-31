@@ -1,0 +1,20 @@
+﻿@model List<Animal>
+
+@{
+    List<string> breed = Model.Select(b=>b.Breed).Distinct().ToList();
+    }
+<label for="Breed">Breed:</label>
+<form asp-method="post" asp-action="Result">
+<select name="Breed" id="Breed">
+    
+    @{
+        foreach(string b in breed)
+        {
+            <option value="@b">@b</option>
+        }
+    }
+    <input type="submit" value="Submit" />
+</select>
+</form>
+
+<a asp-controller="Animal" asp-action="Add">Add Animal</a>

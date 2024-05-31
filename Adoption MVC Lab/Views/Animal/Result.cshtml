@@ -1,0 +1,9 @@
+﻿@model List<Animal>
+
+@{
+    foreach (Animal a in Model)
+    {
+        <li>@a.Name; @a.Breed; @a.Description; @a.Age years old; <img src="@a.Img" /><a asp-controller="Animal" asp-action="Adopt" asp-route-id="@a.Id">Adopt</a></li>
+        
+    }
+}
